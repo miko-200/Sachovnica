@@ -1,0 +1,1 @@
+Robim sachovnicu v typescripte
