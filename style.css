@@ -74,6 +74,11 @@
 .tile {
     width: calc(400px / 8);
     height: calc(400px / 8);
+    transition: background-color 0.2s ease;
+}
+
+.tile:hover {
+    background-color: greenyellow;
 }
 
 .black-tile {
