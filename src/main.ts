@@ -17,6 +17,11 @@ function createChessboard() {
                 tile.classList.add("black-tile");
             }
             tile.setAttribute("data-position", `${i},${j}`);
+            tile.onclick = () => {
+                console.log(`Tile clicked at position (${tile.getAttribute("data-position")}) with class ${tile.className}`);
+                tile.classList.toggle("selected-tile");
+                console.log(`Tile class after click: ${tile.className}`);
+            }
             chessboardContainer.appendChild(tile);
             console.log(`Tile created at position (${tile.getAttribute("data-position")}) with class ${tile.className}`);
         }

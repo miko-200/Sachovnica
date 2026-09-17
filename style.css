@@ -79,6 +79,7 @@
 
 .tile:hover {
     background-color: greenyellow;
+    cursor: pointer;
 }
 
 .black-tile {
@@ -87,4 +88,8 @@
 
 .white-tile {
     background-color: white;
+}
+
+.selected-tile {
+    background-color: greenyellow;
 }
