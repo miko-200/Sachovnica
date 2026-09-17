@@ -75,6 +75,9 @@
 .tile {
     width: calc(30vw / 8);
     height: calc(30vw / 8);
+    text-align: center;
+    line-height: calc(30vw / 8);
+    font-size: 2rem;
     transition: background-color 0.2s ease;
 }
 
@@ -84,13 +87,21 @@
 }
 
 .black-tile {
-    background-color: black;
+    background-color: green;
 }
 
 .white-tile {
-    background-color: white;
+    background-color: rgb(251, 226, 206);
 }
 
 .selected-tile {
     background-color: greenyellow;
+}
+
+.black-piece {
+    color: black;
+}
+
+.white-piece {
+    color: white;
 }

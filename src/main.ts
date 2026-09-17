@@ -1,8 +1,17 @@
 const chessboardContainer = document.getElementById("chessboard") as HTMLDivElement;
+let chessboardState: string[][] = Array.from({ length: 8 }, () => Array(8).fill(""));
+
+const pawn = "♟";
+const rook = "♜";
+const knight = "♞";
+const bishop = "♝";
+const queen = "♛";
+const king = "♚";
 
 onload = () => {
     console.log("Page loaded. Ready to create chessboard.");
     createChessboard();
+    resetChessboardState();
 }
 
 function createChessboard() {
@@ -31,8 +40,42 @@ function createChessboard() {
                 tile.classList.toggle("selected-tile");
                 console.log(`Tile class after click: ${tile.className}`);
             }
+
+            if (i < 2) {
+                console.log(`Adding black piece to tile at position (${i},${j}), i: ${i}`);
+                tile.classList.add("black-piece");
+            } 
+            else if (i > 5) {
+                console.log(`Adding white piece to tile at position (${i},${j}), i: ${i}`);
+                tile.classList.add("white-piece");
+            }
+
+            tile.appendChild(document.createTextNode(chessboardState[i][j]));
             chessboardContainer.appendChild(tile);
             console.log(`Tile created at position (${tile.getAttribute("data-position")}) with class ${tile.className}`);
         }
     }
+}
+
+
+function resetChessboard() {
+    console.log("Resetting chessboard...");
+    while (chessboardContainer.firstChild) {
+        chessboardContainer.removeChild(chessboardContainer.firstChild);
+    }
+
+    createChessboard();
+}
+
+function resetChessboardState() {
+    console.log("Resetting chessboard state...");
+    chessboardState = [[rook, knight, bishop, queen, king, bishop, knight, rook],
+                       [pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn],
+                       ["", "", "", "", "", "", "", ""],
+                       ["", "", "", "", "", "", "", ""],
+                       ["", "", "", "", "", "", "", ""],
+                       ["", "", "", "", "", "", "", ""],
+                       [pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn],
+                       [rook, knight, bishop, queen, king, bishop, knight, rook]];
+    resetChessboard();
 }
