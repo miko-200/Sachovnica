@@ -18,7 +18,15 @@ function createChessboard() {
             }
             tile.setAttribute("data-position", `${i},${j}`);
             tile.onclick = () => {
-                console.log(`Tile clicked at position (${tile.getAttribute("data-position")}) with class ${tile.className}`);
+                console.log(`Tile clicked at position (${tile.getAttribute("data-position")})
+                with class ${tile.className}`);
+                const tiles = chessboardContainer.getElementsByClassName("tile");
+                for (let k = 0; k < tiles.length; k++) {
+                    const otherTile = tiles[k];
+                    if (otherTile !== tile) {
+                        otherTile.classList.remove("selected-tile");
+                    }
+                }
                 tile.classList.toggle("selected-tile");
                 console.log(`Tile class after click: ${tile.className}`);
             };
